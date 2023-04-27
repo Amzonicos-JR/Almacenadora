@@ -19,7 +19,6 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
-
 //Función donde se levanta el servidor
 exports.initServer = ()=>{
     app.listen(port);
