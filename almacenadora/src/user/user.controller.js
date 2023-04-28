@@ -20,6 +20,7 @@ exports.userDefault = async(req, res)=>{
             phone: '33941740',
             role: 'ADMIN'
         }
+        data.password = await encrypt(data.password)
         let existeUser = await User.findOne({name: 'Admin'});
         if(existeUser) return console.log('ADMIN YA CREADO ANTERIORMENTE');
         let defUser = new User(data);

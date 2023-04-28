@@ -1,0 +1,285 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Almacenadora",
+    "dateExported": "2023-04-28T08:53:51.469Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "account",
+            "containerId": "",
+            "created": "2023-04-28T07:33:59.812Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "4d00db12-25f8-40cb-af41-3244b3ec10e3",
+            "name": "user",
+            "containerId": "",
+            "created": "2023-04-28T07:34:14.043Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "f05bd638-cc96-45d9-bf84-dce7e9c25636",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "Test-Account",
+            "url": "/account/test",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-28T07:33:59.813Z",
+            "modified": "2023-04-28T07:33:59.813Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e298e001-217f-4f52-bb8d-35ab490a8b40",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "Add-Account",
+            "url": "/account/add-account",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-28T07:33:59.814Z",
+            "modified": "2023-04-28T07:33:59.814Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "dpi",
+                        "value": "123456789-02"
+                    },
+                    {
+                        "name": "name",
+                        "value": "Alessandro"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Gutierrez"
+                    },
+                    {
+                        "name": "age",
+                        "value": "18"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "5050-5050"
+                    },
+                    {
+                        "name": "email",
+                        "value": "agutierrez-2021188@kinal.edu.gt"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "2b246bf9-616a-4e2c-85cb-32a8c71eff55",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "Update-Account",
+            "url": "/account/update-account/644a17cc9ba81b1901e2f3e4",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-04-28T07:33:59.815Z",
+            "modified": "2023-04-28T07:33:59.815Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "dpi",
+                        "value": "123",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "Alessandro Emanuel"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Gutierrez Boc"
+                    },
+                    {
+                        "name": "age",
+                        "value": "19"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "12345678"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "7cc39539-9c1d-4c32-a101-d271e5ee9532",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "Delete-Account",
+            "url": "/account/delete-account/644a17cc9ba81b1901e2f3e4",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-04-28T07:33:59.816Z",
+            "modified": "2023-04-28T07:33:59.816Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8fbc06d6-58e4-45ff-ae75-0468c4eeae40",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "6dd30f9d-d80c-4440-821a-b9535d90bcc3",
+            "name": "Get-Accounts",
+            "url": "/account/get-accounts",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-04-28T07:33:59.817Z",
+            "modified": "2023-04-28T07:33:59.817Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "16663d41-c45f-46cf-90fa-983121578df8",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "4d00db12-25f8-40cb-af41-3244b3ec10e3",
+            "name": "Login",
+            "url": "/user/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-04-28T08:06:44.208Z",
+            "modified": "2023-04-28T08:46:35.372Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "asumpango"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "1589f5d9-caf0-420c-a5b4-f69c31bbff97",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "4d00db12-25f8-40cb-af41-3244b3ec10e3",
+            "name": "DeleteUser",
+            "url": "/user/delete/644b8420e65271aa5cd56808",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2023-04-28T08:17:03.509Z",
+            "modified": "2023-04-28T08:46:55.108Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDRiODQyMGU2NTI3MWFhNWNkNTY4MDgiLCJuYW1lIjoiQXhlbCIsInN1cm5hbWUiOiJTdW1wYW5nbyIsInVzZXJuYW1lIjoiYXN1bXBhbmdvIiwicGhvbmUiOiIzMzk0MTQ3MCIsInJvbGUiOiJUUkFCQUpBRE9SIiwiaWF0IjoxNjgyNjcxNTk1LCJleHAiOjE2ODI2Nzg3OTV9.NBddg77dlkc99l81RVTJz8pkAy402zsvPOchrX42cpg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "46f683e7-0a03-45a5-a93f-0d8edc8ece50",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "4d00db12-25f8-40cb-af41-3244b3ec10e3",
+            "name": "Save",
+            "url": "/user/save",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-04-28T08:27:28.634Z",
+            "modified": "2023-04-28T08:30:24.851Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDRiODM0NmU2NTI3MWFhNWNkNTY4MDUiLCJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiTWFzdGVlciIsInVzZXJuYW1lIjoiYWRtaW4iLCJwaG9uZSI6IjMzOTQxNzQwIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjgyNjcwNDI1LCJleHAiOjE2ODI2Nzc2MjV9._MpOtWx6I1-7JvL-ypqvx51K9odh7eR7yqtzz9OPLCQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Axel"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Sumpango"
+                    },
+                    {
+                        "name": "username",
+                        "value": "asumpango"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "33941470"
+                    },
+                    {
+                        "name": "role",
+                        "value": "TRABAJADOR"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "454de750-4ac5-44a6-b019-c5fa0d41b705",
+            "colId": "518ccf02-b4bc-46c5-8bd2-2209c1442775",
+            "containerId": "4d00db12-25f8-40cb-af41-3244b3ec10e3",
+            "name": "UpdateUser",
+            "url": "/user/update/644b8346e65271aa5cd56805",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-04-28T08:30:44.784Z",
+            "modified": "2023-04-28T08:46:03.585Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDRiODM0NmU2NTI3MWFhNWNkNTY4MDUiLCJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiTWFzdGVlciIsInVzZXJuYW1lIjoiYWRtaW4iLCJwaG9uZSI6IjMzOTQxNzQwIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjgyNjcwNDI1LCJleHAiOjE2ODI2Nzc2MjV9._MpOtWx6I1-7JvL-ypqvx51K9odh7eR7yqtzz9OPLCQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "esotilin"
+                    },
+                    {
+                        "name": "role",
+                        "value": "ADMIN"
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:3000"
+        }
+    }
+}
