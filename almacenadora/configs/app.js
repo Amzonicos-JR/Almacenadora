@@ -10,12 +10,13 @@ const cors = require('cors');
 //Instancia de express
 const app = express();
 const port = process.env.PORT || 3500;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 const accountRoutes = require('../src/account/account.routes');
-=======
+//=======
 const userRoutes = require('../src/user/user.routes')
+const serviceRoutes = require('../src/additional services/additionalServices.routes')
 
->>>>>>> asumpango-2018373
+//>>>>>>> asumpango-2018373
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
 app.use(express.urlencoded({extended: false}));
@@ -23,11 +24,12 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
-<<<<<<< HEAD
+//<<<<<<< HEAD
 app.use('/account', accountRoutes);
-=======
+//=======
 app.use('/user', userRoutes);
->>>>>>> asumpango-2018373
+app.use('/service', serviceRoutes)
+//>>>>>>> asumpango-2018373
 
 //Función donde se levanta el servidor
 exports.initServer = ()=>{
