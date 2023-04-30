@@ -8,10 +8,9 @@ const { ensureAuth, isAdmin } = require('../services/authenticated');
 //Ruta de testeo
 api.get('/test', [ensureAuth, isAdmin], leaseController.test)
 
-//Rutas públicas
-api.post('/add', leaseController.add)
-
 //Rutas privadas
 //Rutas privadas solo para administrador
+api.post('/add', [ensureAuth, isAdmin], leaseController.add)
+api.delete('/delete/:id',[ensureAuth, isAdmin], leaseController.delete)
 
 module.exports = api;

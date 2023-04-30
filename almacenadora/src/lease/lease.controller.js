@@ -26,6 +26,18 @@ exports.add = async(req, res)=>{
 
     }catch(err){
         console.error(err)
-        return res.status(500).send({message: 'Error to create arrendamiento'})
+        return res.status(500).send({message: 'Error to create lease'})
+    }
+}
+
+exports.delete = async(req, res)=>{
+    try{    
+        let leaseId = req.params.id
+        let deletedLease = await Lease.findOneAndDelete({_id: leaseId})
+        if(!deletedLease) return res.status(404).send({message: 'Lease not found and not deleted'})
+        return res.send({message: 'Lease deleted sucessfuly'})
+    }catch(err){
+        console.error(err)
+        return res.status(500).send({message: 'Error to deleted lease'})
     }
 }
