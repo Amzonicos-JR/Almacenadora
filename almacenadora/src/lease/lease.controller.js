@@ -18,6 +18,8 @@ exports.add = async(req, res)=>{
         //vefificar si la bodega esta disponible 
         let existCellar = await Cellar.findOne({_id: data.cellar})
         if(existCellar.availability === 'not available') return res.status(409).send({message: 'Cellar is already in use'}) 
+        // si esta disponible cambiar la disponibilidad 
+        await Cellar.findOneAndUpdate({_id: data.cellar}, {availability: 'not available'})
 
         //agregar el arrendamiento  
         let lease = new Lease(data)
@@ -49,5 +51,39 @@ exports.get = async(req, res)=>{
     }catch(err){
         console.error(err)
         return res.status(500).send({message: 'Error to got leases'})
+    }
+}
+
+exports.update = async(req, res)=>{
+    try{
+        let leaseId = req.params.id
+        let { cellar } = req.body
+        //verificar que los datos existan 
+        let existCellar = await Cellar.findOne({_id: cellar})
+        if(!existCellar) return res.status(404).send({message: 'Cellar not found'})
+
+        //verificar si es la misma bodega
+        let existLease = await Lease.findOne({_id: leaseId}) 
+        if(existLease.cellar == cellar) return res.send({message:' Ya tienes asignado la misma bodeba'})
+
+        //verificar si la nueva bodega esta disponible
+        if(existCellar.availability === 'not available') return res.status(409).send({message: 'Cellar is already in use'}) 
+
+        // la antigua bodeba se vuelve a habilitar 
+        await Cellar.findOneAndUpdate({_id: existLease.cellar},{availability: 'available'})
+
+        // la nueva bodega se desabilita
+        await Cellar.findOneAndUpdate({_id: cellar},{availability: 'not available'})
+        //actualizar 
+        let updatedLease = await Lease.findOneAndUpdate(
+            {_id: leaseId},
+            {cellar: cellar},
+            {new: true}
+        )
+        if(!updatedLease) return res.send({message: 'Lease not found and not updated'})
+        return res.send({message: 'Lease updated', updatedLease})
+    }catch(err){
+        console.error(err)
+        return res.status(500).send({message: 'Error to updated lease'})
     }
 }

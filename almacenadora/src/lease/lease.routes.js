@@ -13,5 +13,6 @@ api.get('/test', [ensureAuth, isAdmin], leaseController.test)
 api.post('/add', [ensureAuth, isAdmin], leaseController.add)
 api.delete('/delete/:id',[ensureAuth, isAdmin], leaseController.delete)
 api.get('/get', [ensureAuth, isAdmin], leaseController.get)
+api.put('/update/:id', [ensureAuth, isAdmin], leaseController.update)
 
 module.exports = api;
