@@ -12,5 +12,6 @@ api.get('/test', [ensureAuth, isAdmin], leaseController.test)
 //Rutas privadas solo para administrador
 api.post('/add', [ensureAuth, isAdmin], leaseController.add)
 api.delete('/delete/:id',[ensureAuth, isAdmin], leaseController.delete)
+api.get('/get', [ensureAuth, isAdmin], leaseController.get)
 
 module.exports = api;

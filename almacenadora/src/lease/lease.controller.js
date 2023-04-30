@@ -41,3 +41,13 @@ exports.delete = async(req, res)=>{
         return res.status(500).send({message: 'Error to deleted lease'})
     }
 }
+
+exports.get = async(req, res)=>{
+    try{
+        let leases = await Lease.find()
+        return res.send({message: 'Leases found', leases})
+    }catch(err){
+        console.error(err)
+        return res.status(500).send({message: 'Error to got leases'})
+    }
+}
