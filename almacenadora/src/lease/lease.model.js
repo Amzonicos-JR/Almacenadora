@@ -27,7 +27,7 @@ const leaseSchema = mongoose.Schema({
     },
     total: {
         type: Number,
-        required: true
+        default: 0
     }
 });
 
