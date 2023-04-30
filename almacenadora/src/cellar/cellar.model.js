@@ -7,7 +7,7 @@ const cellarSchema = mongoose.Schema({
     description: { type: String, required: true},
     location: { type: String, required: true},
     size: {type: String, required: true},
-    availability: {type: String, required: false, default: 'Availability'},
+    availability: {type: String, required: false, default: 'Available'},
     price: {type: Number, required: true}
 });
 
