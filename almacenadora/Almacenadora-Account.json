@@ -1,0 +1,149 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Almacenadora",
+    "dateExported": "2023-04-27T06:55:44.615Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "account",
+            "containerId": "",
+            "created": "2023-04-27T06:22:24.955Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "9c1f7675-a43d-4959-9704-1a3a574a1e9c",
+            "colId": "21b8d34d-3d75-44bf-99ab-542b9a480895",
+            "containerId": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "Test-Account",
+            "url": "/account/test",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-27T06:22:48.835Z",
+            "modified": "2023-04-27T06:25:52.197Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0766f32f-980b-4a65-a526-8d05d2060874",
+            "colId": "21b8d34d-3d75-44bf-99ab-542b9a480895",
+            "containerId": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "Add-Account",
+            "url": "/account/add-account",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-27T06:31:04.629Z",
+            "modified": "2023-04-27T06:54:05.669Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "dpi",
+                        "value": "123456789-02"
+                    },
+                    {
+                        "name": "name",
+                        "value": "Alessandro"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Gutierrez"
+                    },
+                    {
+                        "name": "age",
+                        "value": "18"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "5050-5050"
+                    },
+                    {
+                        "name": "email",
+                        "value": "agutierrez-2021188@kinal.edu.gt"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "384f4e49-621e-47e7-b92a-2fafac5ff9bd",
+            "colId": "21b8d34d-3d75-44bf-99ab-542b9a480895",
+            "containerId": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "Update-Account",
+            "url": "/account/update-account/644a17cc9ba81b1901e2f3e4",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-04-27T06:42:56.437Z",
+            "modified": "2023-04-27T06:46:28.952Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "dpi",
+                        "value": "123",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "Alessandro Emanuel"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Gutierrez Boc"
+                    },
+                    {
+                        "name": "age",
+                        "value": "19"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "12345678"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "efc16ba7-b881-420a-9854-3ff4ab4b479a",
+            "colId": "21b8d34d-3d75-44bf-99ab-542b9a480895",
+            "containerId": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "Delete-Account",
+            "url": "/account/delete-account/644a17cc9ba81b1901e2f3e4",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-04-27T06:50:01.478Z",
+            "modified": "2023-04-27T06:50:47.698Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bf99a697-0a61-40b3-be24-daeda5ea8b62",
+            "colId": "21b8d34d-3d75-44bf-99ab-542b9a480895",
+            "containerId": "7f9d3b12-7a1f-48a5-86cf-47d0bfe4f9d0",
+            "name": "Get-Accounts",
+            "url": "/account/get-accounts",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-04-27T06:53:13.439Z",
+            "modified": "2023-04-27T06:53:24.462Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:3000"
+        }
+    }
+}

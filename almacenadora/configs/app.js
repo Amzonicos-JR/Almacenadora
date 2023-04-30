@@ -11,10 +11,9 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3500;
 
-//=======
+const accountRoutes = require('../src/account/account.routes');
 const userRoutes = require('../src/user/user.routes')
 const serviceRoutes = require('../src/additional services/additionalServices.routes')
-const accountRoutes = require('../src/account/account.routes');
 const cellarRoutes = require('../src/cellar/cellar.routes');
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
@@ -24,14 +23,11 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
-app.use('/account', accountRoutes);
-//=======
 app.use('/user', userRoutes);
-
 app.use('/account', accountRoutes);
 app.use('/cellar', cellarRoutes);
-
 app.use('/service', serviceRoutes)
+app.use('/cellar', cellarRoutes);
 
 //Función donde se levanta el servidor
 exports.initServer = ()=>{
