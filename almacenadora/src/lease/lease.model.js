@@ -13,13 +13,11 @@ const leaseSchema = mongoose.Schema({
         ref: 'Cellars',
         required: true
     },
-    additionalServices: {
-        type: [{
+    Services:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Service',
             required: true
-        }]
-    },
+    }],
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
