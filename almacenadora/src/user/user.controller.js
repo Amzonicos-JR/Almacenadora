@@ -54,6 +54,16 @@ exports.register = async(req, res)=>{
     }
 }
 
+exports.getUsers = async (req, res) => {
+    try {
+        let users = await User.find();
+        return res.send({ message: 'Users found', users })
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error getting users' });
+    }
+}
+
 exports.save = async(req, res)=>{
     try{
         //capturar datos
@@ -89,13 +99,8 @@ exports.login = async(req, res)=>{
         let user = await User.findOne({username: data.username});
         //Validar la contraseña
         if(user && await checkPassword(data.password, user.password)) {
-            let userLogged = {
-                name: user.name,
-                username: user.username,
-                role: user.role
-            }
             let token = await createToken(user)
-            return res.send({message: 'User logged sucessfully', token, userLogged});
+            return res.send({message: 'User logged sucessfully', token});
         }
         return res.status(401).send({message: 'Invalid credentials'});
     }catch(err){

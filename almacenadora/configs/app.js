@@ -15,6 +15,7 @@ const accountRoutes = require('../src/account/account.routes');
 const userRoutes = require('../src/user/user.routes')
 const serviceRoutes = require('../src/additional services/additionalServices.routes')
 const cellarRoutes = require('../src/cellar/cellar.routes');
+const leaseRoutes = require('../src/lease/lease.routes')
 
 //CONFIGURAR EL SERVIDOR HTTP DE EXPRESS
 app.use(express.urlencoded({extended: false}));
@@ -28,6 +29,7 @@ app.use('/account', accountRoutes);
 app.use('/cellar', cellarRoutes);
 app.use('/service', serviceRoutes)
 app.use('/cellar', cellarRoutes);
+app.use('/lease', leaseRoutes)
 
 //Función donde se levanta el servidor
 exports.initServer = ()=>{
