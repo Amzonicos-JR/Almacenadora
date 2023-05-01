@@ -54,6 +54,16 @@ exports.register = async(req, res)=>{
     }
 }
 
+exports.getUsers = async (req, res) => {
+    try {
+        let users = await User.find();
+        return res.send({ message: 'Users found', users })
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error getting users' });
+    }
+}
+
 exports.save = async(req, res)=>{
     try{
         //capturar datos
