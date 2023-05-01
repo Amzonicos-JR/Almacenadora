@@ -76,25 +76,61 @@ exports.deleteCellar = async (req, res) => {
 exports.searchCellar = async (req, res) => {
     try {
         let params = {
-            name: req.body.name
+            name: req.body.name,
         }
         let validate = validateData(params)
         if (validate) return res.status(400).send(validate);
-        let cellar = await Cellar.findOne({ name: params.name })
-        if (cellar) {
-            if ( availability == 'Availability') {
-                return res.send({message: 'Not found'})
+        let cellars = await Cellar.find({
+            name: {
+                $regex: params.name,
+                $options: 'i'
             }
-            let cellars = await Cellar.find({
-                name: {
-                    $regex: params.name,
-                    $options: 'i'
-                }
-            })
-            return res.send({ cellars })
-        }
+        })
+        return res.send({ cellars })
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: 'Error searching cellar' })
+    }
+}
+
+exports.searchCellarAvailability = async (req, res) => {
+    try {
+        let params = {
+            name: req.body.name,
+        }
+        let validate = validateData(params)
+        if (validate) return res.status(400).send(validate);
+        let cellars = await Cellar.find({
+            name: {
+                $regex: params.name,
+                $options: 'i'
+            },
+            availability: 'Availability'
+        })
+        return res.send({ cellars })
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Cellars not found' })
+    }
+}
+
+exports.searchCellarNoAvailability = async (req, res) => {
+    try {
+        let params = {
+            name: req.body.name,
+        }
+        let validate = validateData(params)
+        if (validate) return res.status(400).send(validate);
+        let cellars = await Cellar.find({
+            name: {
+                $regex: params.name,
+                $options: 'i'
+            },
+            availability: 'NoAvailability'
+        })
+        return res.send({ cellars })
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Cellars not found' })
     }
 }

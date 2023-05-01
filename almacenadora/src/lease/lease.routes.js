@@ -6,16 +6,16 @@ const leaseController = require('./lease.controller')
 const { ensureAuth, isAdmin } = require('../services/authenticated');
 
 //Ruta de testeo
-api.get('/test', [ensureAuth, isAdmin], leaseController.test)
+api.get('/test', leaseController.test)
 
 //Rutas privadas
 //Rutas privadas solo para administrador
-api.post('/add', [ensureAuth, isAdmin], leaseController.add)
-api.delete('/delete/:id',[ensureAuth, isAdmin], leaseController.delete)
-api.get('/get', [ensureAuth, isAdmin], leaseController.get)
-api.put('/update/:id', [ensureAuth, isAdmin], leaseController.update)
+api.post('/add', leaseController.add)
+api.delete('/delete/:id', leaseController.delete)
+api.get('/get', leaseController.get)
+api.put('/update/:id', leaseController.update)
 
-api.post('/addService/:id',[ensureAuth, isAdmin], leaseController.addService)
-api.post('/deleteService/:id',[ensureAuth, isAdmin], leaseController.deleteService)
+api.post('/addService/:id', leaseController.addService)
+api.post('/deleteService/:id', leaseController.deleteService)
 
 module.exports = api;
