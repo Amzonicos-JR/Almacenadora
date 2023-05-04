@@ -73,6 +73,8 @@ exports.save = async (req, res) => {
         }
         let validate = validateData(params);
         if (validate) return res.status(400).send(validate);
+        //Role predefinido5
+        data.role = 'WORKER';
         //encriptar la password
         data.password = await encrypt(data.password);
         //guardar
