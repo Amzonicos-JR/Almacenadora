@@ -114,6 +114,10 @@ exports.login = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         let userId = req.params.id;
+        let noAdmin = await User.findOne({_id: "644c4d25bb4255b0d7ac0a46"})
+        if (noAdmin._id == userId) {
+            return res.send({message: 'No tiene permiso'})
+        }
         let data = req.body;
         if (data.password || Object.entries(data).length === 0 || data.role) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
         let existUser = await User.findOne({ _id: userId });
@@ -136,10 +140,12 @@ exports.delete = async (req, res) => {
     try {
         //Obtener el id a eliminar
         let userId = req.params.id;
-        //Validar si tiene permisos
-        if (userId != req.user.sub) return res.status(401).send({ message: 'Dont have permission to do this action' });
+        let noAdmin = await User.findOne({_id: "644c4d25bb4255b0d7ac0a46"})
+        if (noAdmin._id == userId) {
+            return res.send({message: 'No tiene permiso'})
+        }
         //Eliminar
-        let userDeleted = await User.findOneAndDelete({ _id: req.user.sub });
+        let userDeleted = await User.findOneAndDelete({ _id: userId });
         if (!userDeleted) return res.send({ message: 'Account not found and not deleted' });
         return res.send({ message: `Account with username ${userDeleted.username} deleted sucessfully` });
     } catch (err) {

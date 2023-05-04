@@ -37,9 +37,9 @@ exports.updateAccount = async (req, res) => {
         //Obtener los datos a actualizar
         let data = req.body;
         //Validar que no lleguen datos no actualizables
-        if (data.dpi || Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
+        //if (data.dpi || Object.entries(data).length === 0) return res.status(400).send({ message: 'Have submitted some data that cannot be updated' });
         let accountUpdate = await Account.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: accountId },
             data,
             { new: true }
         )
