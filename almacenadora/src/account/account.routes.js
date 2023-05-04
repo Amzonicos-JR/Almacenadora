@@ -6,11 +6,11 @@ const accountController = require('./account.controller');
 const { ensureAuth, isAdmin } = require('../services/authenticated');
 
 //Rutas Privadas [ADMIN]
-api.get('/test', [ensureAuth, isAdmin], accountController.test)
-api.get('/get-accounts', [ensureAuth, isAdmin], accountController.getAccounts)
-api.post('/add-account', [ensureAuth, isAdmin], accountController.addAccount)
-api.put('/update-account/:id', [ensureAuth, isAdmin], accountController.updateAccount)
-api.delete('/delete-account/:id', [ensureAuth, isAdmin], accountController.deleteAccount);
+api.get('/test', accountController.test)
+api.get('/get-accounts', accountController.getAccounts)
+api.post('/add-account', accountController.addAccount)
+api.put('/update-account/:id', accountController.updateAccount)
+api.delete('/delete-account/:id', accountController.deleteAccount);
 
 module.exports = api;
 

@@ -109,41 +109,36 @@ exports.login = async(req, res)=>{
     }
 }
 
-exports.update = async(req, res)=>{
-    try{
-        //Obtener el Id del usuario a actualizar;
+exports.update = async (req, res) => {
+    try {
         let userId = req.params.id;
-        //Obtener los datos a actualizar
         let data = req.body;
-        //Validar si tiene permisos
-        if(userId != req.user.sub) return res.status(401).send({message: 'Dont have permission to do this action'});
-        //Validar que le llegue data a actualizar
         if(data.password || Object.entries(data).length === 0 || data.role) return res.status(400).send({message: 'Have submitted some data that cannot be updated'});
-        let userUpdated = await User.findOneAndUpdate(
-            {_id: req.user.sub},
-            data,
-            {new: true} 
-        )
-        if(!userUpdated) return res.status(404).send({message: 'User not found adn not updated'});
-        return res.send({message: 'User updated', userUpdated})
-    }catch(err){
+        let existUser = await User.findOne({ _id: userId });
+        if (existUser) {
+            let userUp = await User.findOneAndUpdate(
+                { _id: userId },
+                data,
+                { new: true }
+            )
+            return res.send({ message: 'Updating user', userUp });
+        }
+        return res.send({ message: 'User not found or not updating' });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error not updated', err: `Username ${err.keyValue.username} is already taken`});
+        return res.status(500).send({ message: 'Error updating user' })
     }
 }
 
-exports.delete = async(req, res)=>{
-    try{
-        //Obtener el id a eliminar
+
+exports.delete = async (req, res) => {
+    try {
         let userId = req.params.id;
-        //Validar si tiene permisos
-        if( userId != req.user.sub) return res.status(401).send({message: 'Dont have permission to do this action'});
-        //Eliminar
-        let userDeleted = await User.findOneAndDelete({_id: req.user.sub});
-        if(!userDeleted) return res.send({message: 'Account not found and not deleted'});
-        return res.send({message: `Account with username ${userDeleted.username} deleted sucessfully`});
-    }catch(err){
+        let userDeleted = await User.findOneAndDelete({ _id: userId });
+        if (!userDeleted) return res.status(404).send({ message: 'Error removing user or already deleted' });
+        return res.send({ message: 'User deleted sucessfully', userDeleted });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error not deleted'});
+        return res.status(500).send({ message: 'Error deleting user' })
     }
 }
